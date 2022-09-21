@@ -1,0 +1,78 @@
+.introducao {
+  max-width: 1200px;
+  padding: 40px 20px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 4fr 8fr; /* 4 e 8 fr
+  pois sao as quantidades de colunas determinadas no figma do portfolio. 4 colunas para a imagem e 8 para o texto da introdução.*/
+  gap: 100px;
+  align-items: center;
+}
+.introducao h1 {
+  font-size: 4.5rem;
+  line-height: 1.125; /*medida sem rem. calculo feito: 4.5 (do font size) *16*1.125 = 81; que é o tamanho da fonte ou sejaa, 1.125 = 81*/
+  margin-bottom: 30px;
+  position: relative;
+}
+.introducao h1::before {
+content: "";
+display: block;
+width: 130px;
+height: 100px;
+background: url('../img/detalhe.svg') no-repeat center;
+position: absolute;
+top: -15px;
+left: -40px;
+z-index: -1; /*colocar o detalhe atras do texto. O "introducao h1 before, é elemento filho do "introducao h1. por isso usar o atributo position*/
+}
+.introducao p {
+  font-size: 1.5rem;
+  color: #525252;
+}
+@media (max-width:1000px) {
+  .introducao h1 {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 800px) {
+.introducao {
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.introducao h1::before {
+  content: "";
+display: block;
+width: 25px;
+height: 10px;
+background: url('../img/detalhe.svg') no-repeat center;
+top: -10px;
+left: 1px;
+}
+}
+@media (max-width:600px) {
+  .introducao {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+.introducao img {
+  display: none;
+}
+.introducao h1 {
+  display:flex;
+  justify-content: center;
+}
+.introducao h1::before {
+  content: "";
+  display:flex;
+  width: 25px;
+  height: 10px;
+  background: url('../img/detalhe.svg') no-repeat center;
+  top: -10px;
+  left: 25px;
+  position: relative
+}
+.introducao p {
+  display: flex;
+  justify-content: center;
+}
+}
